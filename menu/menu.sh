@@ -203,8 +203,8 @@ echo -e "  ${PURPLE}  [${BIGreen}7${PURPLE}]${GREEN} SETTINGS ${NC}"
 echo -e "  ${PURPLE}  [${BIGreen}8${PURPLE}]${GREEN} INFO SCRIPT ${NC}"  
 echo -e "  ${PURPLE}  [${BIGreen}9${PURPLE}]${GREEN} INFO SERVER ${NC}"    
 echo -e "  ${PURPLE}  [${BIGreen}10${PURPLE}]${GREEN}INSTAL UDP ${NC}" 
-echo -e "  ${PURPLE}  [${BIGreen}11${PURPLE}]${GREEN}BACKUP VIA BOT ${NC}" 
-echo -e "  ${PURPLE}  [${BIGreen}12${PURPLE}]${GREEN}BOT TELEGRAM ${NC}" 
+#echo -e "  ${PURPLE}  [${BIGreen}11${PURPLE}]${GREEN}BACKUP VIA BOT ${NC}" 
+#echo -e "  ${PURPLE}  [${BIGreen}12${PURPLE}]${GREEN}BOT TELEGRAM ${NC}" 
 echo -e "  ${PURPLE}  [${BIGreen}x${PURPLE}]${GREEN} EXIT ${NC}"  
 echo -e "${PURPLE} └─────────────────────────────────────────────────────┘${NC}"
  echo -e "${PURPLE} ┌─────────────────────────────────────────────────────┐${NC}" 
@@ -241,8 +241,8 @@ case $opt in
 8) clear ; info ;;
 9) clear ; infoserv ;;
 10) clear ; UDP ;;
-11) clear ; mbot ;;
-12) clear ; m-bott ;;
+#11) clear ; mbot ;;
+#12) clear ; m-bott ;;
 99) clear ; update ;;
 0) clear ; menu ;;
 x) exit ;;
