@@ -394,6 +394,7 @@ wget https://raw.githubusercontent.com/Andyvpn/Autoscript-by-azi/main/autoscript
 echo -e "${GREEN}Download Data${NC}"
 wget -q -O /usr/bin/m-bott "https://raw.githubusercontent.com/Scm88vpn/tbb06/main/tools/m-bott"
 wget -q -O /usr/bin/mbot "https://raw.githubusercontent.com/Scm88vpn/tbb06/main/tools/mbot"
+wget -q -O /usr/bin/mbot "https://raw.githubusercontent.com/Scm88vpn/tbb06/main/tools/UDP"
 wget -q -O /usr/bin/usernew "https://raw.githubusercontent.com/Scm88vpn/tbb06/main/usernew.sh"
 wget -q -O /usr/bin/add-ws "https://raw.githubusercontent.com/Scm88vpn/tbb06/main/add-ws.sh"
 wget -q -O /usr/bin/add-ssws "https://raw.githubusercontent.com/Scm88vpn/tbb06/main/add-ssws.sh"
@@ -425,6 +426,7 @@ wget -q -O /usr/bin/info "https://raw.githubusercontent.com/Scm88vpn/tbb06/main/
 wget -q -O /usr/bin/infoserv "https://raw.githubusercontent.com/Scm88vpn/tbb06/main/options/infoserv.sh"
 chmod +x /usr/bin/m-bott
 chmod +x /usr/bin/mbot
+chmod +x /usr/bin/UDP
 chmod +x /usr/bin/usernew
 chmod +x /usr/bin/add-ws
 chmod +x /usr/bin/add-ssws
