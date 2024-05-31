@@ -231,9 +231,9 @@ echo -e "Limit Ip         : $iplimit Device" | tee -a /etc/log-create-user.log
 echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Host             : $domain" | tee -a /etc/log-create-user.log
 echo -e "IP               : $IP" | tee -a /etc/log-create-user.log
-echo -e "Limit Quota      : $Quota GB" | tee -a /etc/log-create-user.log
-echo -e "Host Slowdns     : ${NS}" | tee -a /etc/log-create-user.log
-echo -e "Isp              : $ISP" | tee -a /etc/log-create-user.log
+#echo -e "Limit Quota      : $Quota GB" | tee -a /etc/log-create-user.log
+#echo -e "Host Slowdns     : ${NS}" | tee -a /etc/log-create-user.log
+#echo -e "Isp              : $ISP" | tee -a /etc/log-create-user.log
 echo -e "Location         : $CITY" | tee -a /etc/log-create-user.log
 echo -e "Port OpenSSH     : 443, 80, 22" | tee -a /etc/log-create-user.log
 echo -e "Port DNS         : 443, 53 ,22 " | tee -a /etc/log-create-user.log
@@ -247,7 +247,7 @@ echo -e "Port OVPN SSL    : 443" | tee -a /etc/log-create-user.log
 echo -e "Port OVPN TCP    : 443, 1194" | tee -a /etc/log-create-user.log
 echo -e "Port OVPN UDP    : 2200" | tee -a /etc/log-create-user.log
 echo -e "BadVPN UDP       : 7100, 7300, 7300" | tee -a /etc/log-create-user.log
-echo -e "Pub Key          : ${PUB}" | tee -a /etc/log-create-user.log
+#echo -e "Pub Key          : ${PUB}" | tee -a /etc/log-create-user.log
 echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
 echo -e "🧿Payload WS     : GET / HTTP/1.1[crlf]host: $domain[crlf]Upgrade: Websocket[crlf][crlf]" | tee -a /etc/log-create-user.log
 echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
