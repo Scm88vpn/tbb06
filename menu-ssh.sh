@@ -433,8 +433,6 @@ passwd -u $User
 usermod -e  $Expiration $User
 egrep "^$User" /etc/passwd >/dev/null
 echo -e "$Pass\n$Pass\n"|passwd $User &> /dev/null
-read -n 1 -s -r -p "Press Enter to back on menu"
-menu-ssh
 clear
 echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
