@@ -49,8 +49,8 @@ MYIP=$(curl -sS ipv4.icanhazip.com)
 echo -e "\e[32mloading...\e[0m"
 clear
 # Valid Script
-ISP=$(cat /root/.info/.isp)
-CITY=$(cat /root/.info/.city)
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
+CITY=$(curl -s ipinfo.io/city)
 ipsaya=$(curl -sS ipv4.icanhazip.com)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
@@ -222,46 +222,46 @@ Berakhir Pada        : $expe
 curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 clear
 echo ""
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
-echo -e "🧿Status Create SSH Succes🧿   " | tee -a /etc/user-create/user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
-echo -e "Username         : $Login" | tee -a /etc/user-create/user.log
-echo -e "Password         : $Pass" | tee -a /etc/user-create/user.log
-echo -e "Limit Ip         : $iplimit Device" | tee -a /etc/user-create/user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
-echo -e "Host             : $domain" | tee -a /etc/user-create/user.log
-echo -e "IP               : $IP" | tee -a /etc/user-create/user.log
-echo -e "Limit Quota      : $Quota GB" | tee -a /etc/user-create/user.log
-echo -e "Host Slowdns     : ${NS}" | tee -a /etc/user-create/user.log
-echo -e "Isp              : $ISP" | tee -a /etc/user-create/user.log
-echo -e "Location         : $CITY" | tee -a /etc/user-create/user.log
-echo -e "Port OpenSSH     : 443, 80, 22" | tee -a /etc/user-create/user.log
-echo -e "Port DNS         : 443, 53 ,22 " | tee -a /etc/user-create/user.log
-echo -e "Port SSH UDP     : 1-65535" | tee -a /etc/user-create/user.log
-echo -e "Port Dropbear    : 443, 109" | tee -a /etc/user-create/user.log
-echo -e "Port SSH WS      : 80, 8080, 8880, 2082" | tee -a /etc/user-create/user.log
-echo -e "Port SSH SSL WS  : 443" | tee -a /etc/user-create/user.log
-echo -e "Port SSL/TLS     : 400-900" | tee -a /etc/user-create/user.log
-echo -e "Port OVPN WS SSL : 443" | tee -a /etc/user-create/user.log
-echo -e "Port OVPN SSL    : 443" | tee -a /etc/user-create/user.log
-echo -e "Port OVPN TCP    : 443, 1194" | tee -a /etc/user-create/user.log
-echo -e "Port OVPN UDP    : 2200" | tee -a /etc/user-create/user.log
-echo -e "BadVPN UDP       : 7100, 7300, 7300" | tee -a /etc/user-create/user.log
-echo -e "Pub Key          : ${PUB}" | tee -a /etc/user-create/user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
-echo -e "🧿Payload WS     : GET / HTTP/1.1[crlf]host: $domain[crlf]Upgrade: Websocket[crlf][crlf]" | tee -a /etc/user-create/user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
-echo -e "🧿Payload WSS    : GET wss://BUG.COM/ HTTP/1.1[crlf]Host: $domain[crlf]Upgrade: websocket[crlf][crlf]" | tee -a /etc/user-create/user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
-echo -e "🧿Payload Enhanced  : PATCH / HTTP/1.1[crlf]Host: $domain[crlf]Host: bug.com[crlf]Upgrade: websocket[crlf]Connection: Upgrade[crlf][crlf]" | tee -a /etc/user-create/user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
-echo -e "OVPN Download    : https://$domain:81/" | tee -a /etc/user-create/user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
-echo -e "Save Link Account: https://$domain:81/ssh-$Login.txt" | tee -a /etc/user-create/user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
-echo -e "Aktif Selama     : $masaaktif Hari" | tee -a /etc/user-create/user.log
-echo -e "Dibuat Pada      : $tnggl" | tee -a /etc/user-create/user.log
-echo -e "Berakhir Pada    : $expe" | tee -a /etc/user-create/user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+echo -e "🧿Status Create SSH Succes🧿   " | tee -a /etc/log-create-user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+echo -e "Username         : $Login" | tee -a /etc/log-create-user.log
+echo -e "Password         : $Pass" | tee -a /etc/log-create-user.log
+echo -e "Limit Ip         : $iplimit Device" | tee -a /etc/log-create-user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+echo -e "Host             : $domain" | tee -a /etc/log-create-user.log
+echo -e "IP               : $IP" | tee -a /etc/log-create-user.log
+echo -e "Limit Quota      : $Quota GB" | tee -a /etc/log-create-user.log
+echo -e "Host Slowdns     : ${NS}" | tee -a /etc/log-create-user.log
+echo -e "Isp              : $ISP" | tee -a /etc/log-create-user.log
+echo -e "Location         : $CITY" | tee -a /etc/log-create-user.log
+echo -e "Port OpenSSH     : 443, 80, 22" | tee -a /etc/log-create-user.log
+echo -e "Port DNS         : 443, 53 ,22 " | tee -a /etc/log-create-user.log
+echo -e "Port SSH UDP     : 1-65535" | tee -a /etc/log-create-user.log
+echo -e "Port Dropbear    : 443, 109" | tee -a /etc/log-create-user.log
+echo -e "Port SSH WS      : 80, 8080, 8880, 2082" | tee -a /etc/log-create-user.log
+echo -e "Port SSH SSL WS  : 443" | tee -a /etc/log-create-user.log
+echo -e "Port SSL/TLS     : 400-900" | tee -a /etc/log-create-user.log
+echo -e "Port OVPN WS SSL : 443" | tee -a /etc/log-create-user.log
+echo -e "Port OVPN SSL    : 443" | tee -a /etc/log-create-user.log
+echo -e "Port OVPN TCP    : 443, 1194" | tee -a /etc/log-create-user.log
+echo -e "Port OVPN UDP    : 2200" | tee -a /etc/log-create-user.log
+echo -e "BadVPN UDP       : 7100, 7300, 7300" | tee -a /etc/log-create-user.log
+echo -e "Pub Key          : ${PUB}" | tee -a /etc/log-create-user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+echo -e "🧿Payload WS     : GET / HTTP/1.1[crlf]host: $domain[crlf]Upgrade: Websocket[crlf][crlf]" | tee -a /etc/log-create-user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+echo -e "🧿Payload WSS    : GET wss://BUG.COM/ HTTP/1.1[crlf]Host: $domain[crlf]Upgrade: websocket[crlf][crlf]" | tee -a /etc/log-create-user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+echo -e "🧿Payload Enhanced  : PATCH / HTTP/1.1[crlf]Host: $domain[crlf]Host: bug.com[crlf]Upgrade: websocket[crlf]Connection: Upgrade[crlf][crlf]" | tee -a /etc/log-create-user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+echo -e "OVPN Download    : https://$domain:81/" | tee -a /etc/log-create-user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+echo -e "Save Link Account: https://$domain:81/ssh-$Login.txt" | tee -a /etc/log-create-user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+echo -e "Aktif Selama     : $masaaktif Hari" | tee -a /etc/log-create-user.log
+echo -e "Dibuat Pada      : $tnggl" | tee -a /etc/log-create-user.log
+echo -e "Berakhir Pada    : $expe" | tee -a /etc/log-create-user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
 read -p "Enter Back To Menu"
 menu
