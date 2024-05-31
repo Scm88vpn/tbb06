@@ -124,8 +124,8 @@ clear
       addws
 		fi
 	done
-ISP=$(cat /etc/xray/isp)
-CITY=$(cat /etc/xray/city)
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
+CITY=$(curl -s ipinfo.io/city)
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "EXPIRED (DAY) " masaaktif
 read -p "LIMIT QUOTA (GB): " Quota
