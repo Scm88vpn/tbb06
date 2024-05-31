@@ -255,10 +255,10 @@ echo -e "🧿Payload WSS    : GET wss://BUG.COM/ HTTP/1.1[crlf]Host: $domain[crl
 echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
 echo -e "🧿Payload Enhanced  : PATCH / HTTP/1.1[crlf]Host: $domain[crlf]Host: bug.com[crlf]Upgrade: websocket[crlf]Connection: Upgrade[crlf][crlf]" | tee -a /etc/log-create-user.log
 echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
-echo -e "OVPN Download    : https://$domain:81/" | tee -a /etc/log-create-user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
-echo -e "Save Link Account: https://$domain:81/ssh-$Login.txt" | tee -a /etc/log-create-user.log
-echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+#echo -e "OVPN Download    : https://$domain:81/" | tee -a /etc/log-create-user.log
+#echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
+#echo -e "Save Link Account: https://$domain:81/ssh-$Login.txt" | tee -a /etc/log-create-user.log
+#echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Aktif Selama     : $masaaktif Hari" | tee -a /etc/log-create-user.log
 echo -e "Dibuat Pada      : $tnggl" | tee -a /etc/log-create-user.log
 echo -e "Berakhir Pada    : $expe" | tee -a /etc/log-create-user.log
