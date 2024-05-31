@@ -1,188 +1,267 @@
-#!/bin/bash
-#Script By SCM88 Premium VPN
-
-BIBlack='\033[1;90m'      # Black
-BIRed='\033[1;91m'        # Red
-BIGreen='\033[1;92m'      # Green
-BIYellow='\033[1;93m'     # Yellow
-BIBlue='\033[1;94m'       # Blue
-BIPurple='\033[1;95m'     # Purple
-BICyan='\033[1;96m'       # Cyan
-BIWhite='\033[1;97m'      # White
-UWhite='\033[4;37m'       # White
-On_IPurple='\033[0;105m'  #
-On_IRed='\033[0;101m'
-IBlack='\033[0;90m'       # Black
-IRed='\033[0;91m'         # Red
-IGreen='\033[0;92m'       # Green
-IYellow='\033[0;93m'      # Yellow
-IBlue='\033[0;94m'        # Blue
-IPurple='\033[0;95m'      # Purple
-ICyan='\033[0;96m'        # Cyan
-IWhite='\033[0;97m'       # White
-NC='\e[0m'
-green() { echo -e "\\033[32;1m${*}\\033[0m"; }
-red() { echo -e "\\033[31;1m${*}\\033[0m"; }
-
-# // Export Banner Status Information
-export EROR="[${RED} EROR ${NC}]"
-export INFO="[${YELLOW} INFO ${NC}]"
-export OKEY="[${GREEN} OKEY ${NC}]"
-export PENDING="[${YELLOW} PENDING ${NC}]"
-export SEND="[${YELLOW} SEND ${NC}]"
-export RECEIVE="[${YELLOW} RECEIVE ${NC}]"
-
-# // Export Align
-export BOLD="\e[1m"
-export WARNING="${RED}\e[5m"
-export UNDERLINE="\e[4m"
-
-BURIQ () {
-    curl -sS https://raw.githubusercontent.com/Scm88vpn/permission/main/ip > /root/tmp
-    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
-    for user in "${data[@]}"
-    do
-    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
-    d1=(`date -d "$exp" +%s`)
-    d2=(`date -d "$biji" +%s`)
-    exp2=$(( (d1 - d2) / 86400 ))
-    if [[ "$exp2" -le "0" ]]; then
-    echo $user > /etc/.$user.ini
-    else
-    rm -f /etc/.$user.ini > /dev/null 2>&1
-    fi
-    done
-    rm -f /root/tmp
-}
-
+p#!/bin/bash
+clear
+red() { echo -e "\\033[32;1m${*}\\033[0m"; }
+clear
+#IZIN SCRIPT
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/Scm88vpn/permission/main/ip | grep $MYIP | awk '{print $2}')
-echo $Name > /usr/local/etc/.$Name.ini
-CekOne=$(cat /usr/local/etc/.$Name.ini)
-
-Bloman () {
-if [ -f "/etc/.$Name.ini" ]; then
-CekTwo=$(cat /etc/.$Name.ini)
-    if [ "$CekOne" = "$CekTwo" ]; then
-        res="Expired"
-    fi
-else
-res="Permission Accepted..."
-fi
-}
-
-PERMISSION () {
-    MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/Scm88vpn/permission/main/ip | awk '{print $4}' | grep $MYIP)
-    if [ "$MYIP" = "$IZIN" ]; then
-    Bloman
-    else
-    res="Permission Denied!"
-    fi
-    BURIQ
-}
-PERMISSION
-if [ -f /home/needupdate ]; then
-red "Your script need to update first !"
-exit 0
-elif [ "$res" = "Permission Accepted..." ]; then
-echo -ne
-else
-red "Permission Denied!"
-exit 0
-fi
+echo -e "\e[32mloading...\e[0m"
 clear
+# Valid Script
+Green="\e[92;1m"
+RED="\033[31m"
+YELLOW="\033[33m"
+BLUE="\033[36m"
+FONT="\033[0m"
+GREENBG="\033[42;37m"
+REDBG="\033[41;37m"
+OK="${Green}--->${FONT}"
+ERROR="${RED}[ERROR]${FONT}"
+GRAY="\e[1;30m"
+NC='\e[0m'
+red='\e[1;31m'
+green='\e[0;32m'
+DF='\e[39m'
+Bold='\e[1m'
+Blink='\e[5m'
+yell='\e[33m'
+red='\e[31m'
+green='\e[32m'
+blue='\e[34m'
+PURPLE='\e[35m'
+cyan='\e[36m'
+Lred='\e[91m'
+Lgreen='\e[92m'
+Lyellow='\e[93m'
+NC='\e[0m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+LIGHT='\033[0;37m'
+grenbo="\e[92;1m"
+red() { echo -e "\\033[32;1m${*}\\033[0m"; }
 # Getting
-
-sldomain=$(cat /root/nsdomain)
-cdndomain=$(cat /root/awscdndomain)
-slkey=$(cat /etc/slowdns/server.pub)
+CHATID=$(grep -E "^#bot# " "/etc/bot/.bot.db" | cut -d ' ' -f 3)
+KEY=$(grep -E "^#bot# " "/etc/bot/.bot.db" | cut -d ' ' -f 2)
+export TIME="10"
+export URL="https://api.telegram.org/bot$KEY/sendMessage"
 clear
-cekray=`cat /root/log-install.txt | grep -ow "XRAY" | sort | uniq`
-if [ "$cekray" = "XRAY" ]; then
-domen=`cat /etc/xray/domain`
+#IZIN SCRIPT
+MYIP=$(curl -sS ipv4.icanhazip.com)
+echo -e "\e[32mloading...\e[0m"
+clear
+# Valid Script
+ISP=$(cat /root/.info/.isp)
+CITY=$(cat /root/.info/.city)
+ipsaya=$(curl -sS ipv4.icanhazip.com)
+data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+date_list=$(date +"%Y-%m-%d" -d "$data_server")
+data_ip="https://raw.githubusercontent.com/Scm88vpn/permision/main/reg"
+checking_sc() {
+  useexp=$(wget -qO- $data_ip | grep $ipsaya | awk '{print $3}')
+  if [[ $date_list < $useexp ]]; then
+    echo -ne
+  else
+    echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
+    echo -e "\033[42m          404 NOT FOUND AUTOSCRIPT          \033[0m"
+    echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
+    echo -e ""
+    echo -e "            ${RED}PERMISSION DENIED !${NC}"
+    echo -e "   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}"
+    echo -e "     \033[0;33mBuy access permissions for scripts${NC}"
+    echo -e "             \033[0;33mContact Admin :${NC}"
+    echo -e "      ${GREEN}TELEGRAM${NC} t.me/ohmyvillain"
+    echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
+    exit 0
+  fi
+}
+checking_sc
+clear
+export TIME="10"
+IP=$(curl -sS ipv4.icanhazip.com)
+domain=$(cat /etc/xray/domain)
+NS=$(cat /etc/xray/dns)
+PUB=$(cat /etc/slowdns/server.pub)
+clear
+echo -e "\033[1;93m☉————————————————————————☉\033[0m"
+echo -e " Cretae SSH Ovpn Account           "
+echo -e "\033[1;93m☉————————————————————————☉\033[0m"
+read -p " Username : " Login
+read -p " Password : " Pass
+read -p " Limit IP     : " iplimit
+read -p " Limit Quota  : " Quota
+read -p " Expired (Days) : " masaaktif
+#limitip
+if [[ $iplimit -gt 0 ]]; then
+mkdir -p /etc/kyt/limit/ssh/ip
+echo -e "$iplimit" > /etc/kyt/limit/ssh/ip/$Login
 else
-domen=`cat /etc/v2ray/domain`
+echo > /dev/null
 fi
-portsshws=`cat /root/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}'`
-wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}'`
-
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "\E[0;41;36m        Create SSH Account            \E[0m"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-read -p "Username : " Login
-read -p "Password : " Pass
-read -p "Expired (hari): " masaaktif
-
-IP=$(curl -sS ifconfig.me);
-ossl=`cat /root/log-install.txt | grep -w "OpenVPN" | cut -f2 -d: | awk '{print $6}'`
-opensh=`cat /root/log-install.txt | grep -w "OpenSSH" | cut -f2 -d: | awk '{print $1}'`
-db=`cat /root/log-install.txt | grep -w "Dropbear" | cut -f2 -d: | awk '{print $1,$2}'`
-ssl="$(cat /root/log-install.txt | grep -w "Stunnel5" | cut -d: -f2)"
-sqd="$(cat /root/log-install.txt | grep -w "Squid" | cut -d: -f2)"
-ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
-ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
-
-OhpSSH=`cat /root/log-install.txt | grep -w "OHP SSH" | cut -d: -f2 | awk '{print $1}'`
-OhpDB=`cat /root/log-install.txt | grep -w "OHP DBear" | cut -d: -f2 | awk '{print $1}'`
-OhpOVPN=`cat /root/log-install.txt | grep -w "OHP OpenVPN" | cut -d: -f2 | awk '{print $1}'`
-
-sleep 1
 clear
+clear
+tgl=$(date -d "$masaaktif days" +"%d")
+bln=$(date -d "$masaaktif days" +"%b")
+thn=$(date -d "$masaaktif days" +"%Y")
+expe="$tgl $bln, $thn"
+tgl2=$(date +"%d")
+bln2=$(date +"%b")
+thn2=$(date +"%Y")
+tnggl="$tgl2 $bln2, $thn2"
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
-exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
+expi="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
-PID=`ps -ef |grep -v grep | grep sshws |awk '{print $2}'`
+hariini=`date -d "0 days" +"%Y-%m-%d"`
+expi=`date -d "$masaaktif days" +"%Y-%m-%d"`
 
-if [[ ! -z "${PID}" ]]; then
-echo -e "${BIBlue}════════════SSH ACCOUNTS══════════${NC}"
-echo -e "${BIBlue}══════════════════════════════════${NC}"
-echo -e "Username   : $Login" 
-echo -e "Password   : $Pass"
-echo -e "Expired On : $exp" 
-echo -e "${BIBlue}══════════════════════════════════${NC}"
-echo -e "IP         : $IP" 
-echo -e "Host       : $domen" 
-#echo -e "Nameserver : $sldomain" | tee -a /etc/log-create-user.log
-#echo -e "PubKey     : $slkey" | tee -a /etc/log-create-user.log
-echo -e "OpenSSH    : $opensh"
-echo -e "Dropbear   : $db" 
-echo -e "SSH-WS     : $portsshws" 
-echo -e "SSH WS SSL : $wsssl" 
-echo -e "SSL/TLS    : $ssl" 
-#echo -e "SlowDNS    : 53,5300,443" 
-echo -e "SSH UDP    : $domen:1-65535@$Login:$Pass" 
-echo -e "UDPGW      : 7100-7300" 
-echo -e "${BIBlue}══════════════════════════════════${NC}"
-echo -e "GET / HTTP/1.1[crlf]Host: $domen[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: ws[crlf][crlf]"
-echo -e "${BIBlue}══════════════════════════════════${NC}"
-echo -e "${BICyan} SCM88 Premium VPN Auto Script Service${NC}" 
-
-else
-
-echo -e "${BIBlue}════════════SSH ACCOUNTS══════════${NC}"
-echo -e "${BIBlue}══════════════════════════════════${NC}"
-echo -e "Username   : $Login" 
-echo -e "Password   : $Pass"
-echo -e "Expired On : $exp" 
-echo -e "${BIBlue}══════════════════════════════════${NC}"
-echo -e "IP         : $IP" 
-echo -e "Host       : $domen" 
-#echo -e "Nameserver : $sldomain" | tee -a /etc/log-create-user.log
-#echo -e "PubKey     : $slkey" | tee -a /etc/log-create-user.log
-echo -e "OpenSSH    : $opensh"
-echo -e "Dropbear   : $db" 
-echo -e "SSH-WS     : $portsshws" 
-echo -e "SSH-SSL-WS : $wsssl" 
-echo -e "SSL/TLS    : $ssl" 
-#echo -e "SlowDNS    : 53,5300,443" 
-echo -e "SSH UDP    : $domen:1-65535@$Login:$Pass" 
-echo -e "UDPGW      : 7100-7300" 
-echo -e "${BIBlue}══════════════════════════════════${NC}"
-echo -e "GET / HTTP/1.1[crlf]Host: $domen[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: ws[crlf][crlf]"
-echo -e "${BIBlue}══════════════════════════════════${NC}"
-echo -e "${BICyan} SCM88 Premium VPN Auto Script Service${NC}" 
+if [ ! -e /etc/ssh ]; then
+  mkdir -p /etc/ssh
 fi
-echo "" | tee -a /etc/log-create-user.log
-read -n 1 -s -r -p "Press any key to back on menu"
+
+if [ -z ${Quota} ]; then
+  Quota="0"
+fi
+
+c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+d=$((${c} * 1024 * 1024 * 1024))
+
+if [[ ${c} != "0" ]]; then
+  echo "${d}" >/etc/ssh/${Login}
+fi
+DATADB=$(cat /etc/ssh/.ssh.db | grep "^#ssh#" | grep -w "${Login}" | awk '{print $2}')
+if [[ "${DATADB}" != '' ]]; then
+  sed -i "/\b${Login}\b/d" /etc/ssh/.ssh.db
+fi
+echo "#ssh# ${Login} ${Pass} ${Quota} ${iplimit} ${expe}" >>/etc/ssh/.ssh.db
+clear
+
+cat > /var/www/html/ssh-$Login.txt <<-END
+◇━━━━━━━━━━━━━━━━━◇
+Format SSH OVPN Account
+◇━━━━━━━━━━━━━━━━━◇
+Username         : $Login
+Password         : $Pass
+◇━━━━━━━━━━━━━━━━━◇
+IP               : $IP
+Host             : $domain
+Port OpenSSH     : 443, 80, 22
+Port Dropbear    : 443, 109
+Port Dropbear WS : 443, 109
+Port SSH UDP     : 1-65535
+Port SSH WS      : 80, 8080, 8081-9999
+Port SSH SSL WS  : 443
+Port SSL/TLS     : 400-900
+Port OVPN WS SSL : 443
+Port OVPN SSL    : 443
+Port OVPN TCP    : 1194
+Port OVPN UDP    : 2200
+BadVPN UDP       : 7100, 7300, 7300
+◇━━━━━━━━━━━━━━━━━◇
+Aktif Selama     : $masaaktif Hari
+Dibuat Pada      : $tnggl
+Berakhir Pada    : $expe
+◇━━━━━━━━━━━━━━━━━◇
+Payload WSS: GET wss://BUG.COM/ HTTP/1.1[crlf]Host: $domain[crlf]Upgrade: websocket[crlf][crlf] 
+◇━━━━━━━━━━━━━━━━━◇
+OVPN Download : https://$domain:81/
+◇━━━━━━━━━━━━━━━━━◇
+
+END
+
+CHATID="$CHATID"
+KEY="$KEY"
+TIME="$TIME"
+URL="$URL"
+TEXT="
+<code>☉——————————————————————————☉</code>
+<code>☘️Succes Cretae SSH Account☘️     </code>
+<code>☉——————————————————————————☉</code>
+<code>Username         : </code> <code>$Login</code>
+<code>Password         : </code> <code>$Pass</code>
+<code>Limit Ip         : </code> <code>$iplimit</code>
+<code>☉——————————————————————————☉</code>
+<code>Host             : </code> <code>$domain</code>
+<code>Limit Quota      : </code> <code>$Quota</code>
+<code>Host Slowdns     : </code> <code>$NS</code>
+<code>IP               : $IP</code>
+<code>ISP              : $ISP</code>
+<code>CITY             : $CITY</code>
+<code>Port OpenSSH     : 443, 80, 22</code>
+<code>Port Dropbear    : 443, 109</code>
+<code>Port SSH WS      : 80, 8080, 8081-9999 </code>
+<code>Port SSH UDP     : 1-65535 </code>
+<code>Port SSH SSL WS  : 443</code>
+<code>Port SSL/TLS     : 400-900</code>
+<code>Port OVPN WS SSL : 443</code>
+<code>Port OVPN SSL    : 443</code>
+<code>Port OVPN TCP    : 443, 1194</code>
+<code>Port OVPN UDP    : 2200</code>
+<code>BadVPN UDP       : 7100, 7300, 7300</code>
+<code>Pub Key           : </code> <code>$PUB</code>
+<code>☉——————————————————————————☉</code>
+<code>SSH WS      : 
+</code> <code>$domain:80@${Login}:${Pass}</code>
+<code>SSH SSL      : 
+</code> <code>$domain:443@${Login}:${Pass}</code>
+<code>SSH UDP      : 
+</code> <code>$domain:1-65535@${Login}:${Pass}</code>
+<code>☉——————————————————————————☉</code>
+<code>🧿Payload WS       : 🧿</code><code>GET / HTTP/1.1[crlf]host: $domain[crlf]Upgrade: Websocket[crlf][crlf]</code>
+<code>☉——————————————————————————☉</code>
+<code>🧿Payload WSS      : 🧿</code><code>GET wss://BUG.COM/ HTTP/1.1[crlf]Host: $domain[crlf]Upgrade: websocket[crlf][crlf]</code>
+<code>☉——————————————————————————☉</code>
+<code>🧿Payload Enhanced : 🧿</code><code>PATCH / HTTP/1.1[crlf]Host: $domain[crlf]Host: bug.com[crlf]Upgrade: websocket[crlf]Connection: Upgrade[crlf][crlf]</code>
+<code>☉——————————————————————————☉</code>
+OVPN Download : https://$domain:81/
+<code>☉——————————————————————————☉</code>
+<code>Save Link Account: </code>https://$domain:81/ssh-$Login.txt
+<code>☉——————————————————————————☉</code>
+Aktif Selama         : $masaaktif Hari
+Dibuat Pada          : $tnggl
+Berakhir Pada        : $expe
+<code>☉——————————————————————————☉</code>
+"
+curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
+clear
+echo ""
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "🧿Status Create SSH Succes🧿   " | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "Username         : $Login" | tee -a /etc/user-create/user.log
+echo -e "Password         : $Pass" | tee -a /etc/user-create/user.log
+echo -e "Limit Ip         : $iplimit Device" | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "Host             : $domain" | tee -a /etc/user-create/user.log
+echo -e "IP               : $IP" | tee -a /etc/user-create/user.log
+echo -e "Limit Quota      : $Quota GB" | tee -a /etc/user-create/user.log
+echo -e "Host Slowdns     : ${NS}" | tee -a /etc/user-create/user.log
+echo -e "Isp              : $ISP" | tee -a /etc/user-create/user.log
+echo -e "Location         : $CITY" | tee -a /etc/user-create/user.log
+echo -e "Port OpenSSH     : 443, 80, 22" | tee -a /etc/user-create/user.log
+echo -e "Port DNS         : 443, 53 ,22 " | tee -a /etc/user-create/user.log
+echo -e "Port SSH UDP     : 1-65535" | tee -a /etc/user-create/user.log
+echo -e "Port Dropbear    : 443, 109" | tee -a /etc/user-create/user.log
+echo -e "Port SSH WS      : 80, 8080, 8880, 2082" | tee -a /etc/user-create/user.log
+echo -e "Port SSH SSL WS  : 443" | tee -a /etc/user-create/user.log
+echo -e "Port SSL/TLS     : 400-900" | tee -a /etc/user-create/user.log
+echo -e "Port OVPN WS SSL : 443" | tee -a /etc/user-create/user.log
+echo -e "Port OVPN SSL    : 443" | tee -a /etc/user-create/user.log
+echo -e "Port OVPN TCP    : 443, 1194" | tee -a /etc/user-create/user.log
+echo -e "Port OVPN UDP    : 2200" | tee -a /etc/user-create/user.log
+echo -e "BadVPN UDP       : 7100, 7300, 7300" | tee -a /etc/user-create/user.log
+echo -e "Pub Key          : ${PUB}" | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "🧿Payload WS     : GET / HTTP/1.1[crlf]host: $domain[crlf]Upgrade: Websocket[crlf][crlf]" | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "🧿Payload WSS    : GET wss://BUG.COM/ HTTP/1.1[crlf]Host: $domain[crlf]Upgrade: websocket[crlf][crlf]" | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "🧿Payload Enhanced  : PATCH / HTTP/1.1[crlf]Host: $domain[crlf]Host: bug.com[crlf]Upgrade: websocket[crlf]Connection: Upgrade[crlf][crlf]" | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "OVPN Download    : https://$domain:81/" | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "Save Link Account: https://$domain:81/ssh-$Login.txt" | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+echo -e "Aktif Selama     : $masaaktif Hari" | tee -a /etc/user-create/user.log
+echo -e "Dibuat Pada      : $tnggl" | tee -a /etc/user-create/user.log
+echo -e "Berakhir Pada    : $expe" | tee -a /etc/user-create/user.log
+echo -e "\033[1;93m☉——————————————————————————☉\033[0m" | tee -a /etc/user-create/user.log
+read -p "Enter Back To Menu"
 menu
